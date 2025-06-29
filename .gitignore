@@ -1,0 +1,12 @@
+# Maven
+backend/target/
+
+# IDE
+*.iml
+.idea/
+
+# Node
+frontend/node_modules/
+
+# Logs
+*.log
