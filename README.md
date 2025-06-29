@@ -49,3 +49,13 @@ curl -H "Authorization: Bearer <token>" http://localhost:8080/connections/reques
 curl -X PUT -H "Authorization: Bearer <token>" \
      http://localhost:8080/connections/1/accept
 ```
+
+### Real-time chat
+
+After connecting with another user you can exchange messages over WebSocket. Connect to `/ws` using SockJS/STOMP and send messages to `/app/chat/{recipientId}`. Incoming messages are delivered on `/user/queue/messages`.
+
+You can also fetch recent messages with a user via:
+
+```bash
+curl -H "Authorization: Bearer <token>" http://localhost:8080/chats/2
+```

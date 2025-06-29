@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .headers().frameOptions().disable()
                 .and()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/register", "/login", "/", "/h2-console/**").permitAll()
+                        .requestMatchers("/register", "/login", "/", "/h2-console/**", "/ws/**").permitAll()
                         .anyRequest().authenticated())
                 .authenticationProvider(daoAuthProvider())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
