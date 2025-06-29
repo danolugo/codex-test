@@ -33,6 +33,8 @@ To fetch recommended users, call:
 ```bash
 curl -H "Authorization: Bearer <token>" http://localhost:8080/recommendations
 ```
+The recommendation list ignores users you are already connected to or have pending
+connection requests with.
 
 To send a connection request and list your connections:
 
