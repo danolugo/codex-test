@@ -33,3 +33,11 @@ To fetch recommended users, call:
 ```bash
 curl -H "Authorization: Bearer <token>" http://localhost:8080/recommendations
 ```
+
+To send a connection request and list your connections:
+
+```bash
+curl -X POST -H "Authorization: Bearer <token>" -H "Content-Type: application/json" \
+     -d '{"targetId":2}' http://localhost:8080/connections
+curl -H "Authorization: Bearer <token>" http://localhost:8080/connections
+```
