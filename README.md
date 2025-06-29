@@ -61,3 +61,15 @@ You can also fetch recent messages with a user via:
 ```bash
 curl -H "Authorization: Bearer <token>" http://localhost:8080/chats/2
 ```
+
+## Frontend
+
+To run the React frontend (using Vite):
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+This starts the dev server on http://localhost:3000 where you can see the placeholder UI.
