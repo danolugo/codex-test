@@ -41,3 +41,11 @@ curl -X POST -H "Authorization: Bearer <token>" -H "Content-Type: application/js
      -d '{"targetId":2}' http://localhost:8080/connections
 curl -H "Authorization: Bearer <token>" http://localhost:8080/connections
 ```
+
+To view incoming requests and accept one:
+
+```bash
+curl -H "Authorization: Bearer <token>" http://localhost:8080/connections/requests
+curl -X PUT -H "Authorization: Bearer <token>" \
+     http://localhost:8080/connections/1/accept
+```

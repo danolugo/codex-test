@@ -10,4 +10,7 @@ import java.util.Optional;
 public interface ConnectionRepository extends JpaRepository<Connection, Long> {
     List<Connection> findByRequesterOrRecipientAndStatus(User requester, User recipient, Connection.Status status);
     Optional<Connection> findByRequesterAndRecipient(User requester, User recipient);
+
+    List<Connection> findByRecipientAndStatus(User recipient, Connection.Status status);
+    Optional<Connection> findByIdAndRecipient(Long id, User recipient);
 }

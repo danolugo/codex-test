@@ -22,6 +22,18 @@ public class ConnectionController {
         connectionService.requestConnection(user, body.get("targetId"));
     }
 
+    @GetMapping("/requests")
+    public Map<String, Object> listRequests(Authentication auth) {
+        User user = (User) auth.getPrincipal();
+        return Map.of("requests", connectionService.getIncomingRequests(user));
+    }
+
+    @PutMapping("/{id}/accept")
+    public void acceptRequest(Authentication auth, @PathVariable Long id) {
+        User user = (User) auth.getPrincipal();
+        connectionService.acceptConnection(user, id);
+    }
+
     @GetMapping
     public Map<String, Object> listConnections(Authentication auth) {
         User user = (User) auth.getPrincipal();

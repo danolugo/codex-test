@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,12 +36,17 @@ public class ConnectionService {
 
     @Transactional
     public void acceptConnection(User recipient, Long connectionId) {
-        Connection connection = connectionRepository.findById(connectionId).orElseThrow();
-        if (!connection.getRecipient().getId().equals(recipient.getId())) {
-            throw new IllegalStateException("Not authorized");
-        }
+        Connection connection = connectionRepository.findByIdAndRecipient(connectionId, recipient)
+                .orElseThrow();
         connection.setStatus(Connection.Status.CONNECTED);
         connectionRepository.save(connection);
+    }
+
+    public List<Map<String, Object>> getIncomingRequests(User user) {
+        return connectionRepository.findByRecipientAndStatus(user, Connection.Status.PENDING)
+                .stream()
+                .map(c -> Map.of("id", c.getId(), "requesterId", c.getRequester().getId()))
+                .collect(Collectors.toList());
     }
 
     public List<Long> getConnections(User user) {
