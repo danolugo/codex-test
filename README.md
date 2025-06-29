@@ -18,3 +18,12 @@ You can register and log in using JSON requests:
 curl -X POST -H "Content-Type: application/json" -d '{"email":"test@example.com","password":"pass"}' http://localhost:8080/register
 curl -X POST -H "Content-Type: application/json" -d '{"email":"test@example.com","password":"pass"}' http://localhost:8080/login
 ```
+
+After logging in, include the returned token in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer <token>" http://localhost:8080/me
+curl -X PUT -H "Authorization: Bearer <token>" -H "Content-Type: application/json" \
+     -d '{"location":"NYC","industry":"AI","skills":"Java","startupStage":"idea","lookingFor":"Designer"}' \
+     http://localhost:8080/me/profile
+```

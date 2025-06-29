@@ -37,6 +37,7 @@ public class AuthController {
         User user = new User();
         user.setEmail(body.get("email"));
         user.setPassword(passwordEncoder.encode(body.get("password")));
+        user.setDisplayName(body.getOrDefault("displayName", body.get("email")));
         repository.save(user);
         return ResponseEntity.ok().build();
     }
