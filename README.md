@@ -2,6 +2,11 @@
 
 This repository contains the beginnings of the **MatchMe** co-founder matching application. The project will include a Spring Boot backend and a React frontend. The backend currently contains a minimal setup so development can start.
 
+## Prerequisites
+- Java 17 and Maven
+- Node.js 18+
+- Docker (optional for containerized setup)
+
 ## Backend
 
 To run the backend locally:
