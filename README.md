@@ -27,3 +27,9 @@ curl -X PUT -H "Authorization: Bearer <token>" -H "Content-Type: application/jso
      -d '{"location":"NYC","industry":"AI","skills":"Java","startupStage":"idea","lookingFor":"Designer"}' \
      http://localhost:8080/me/profile
 ```
+
+To fetch recommended users, call:
+
+```bash
+curl -H "Authorization: Bearer <token>" http://localhost:8080/recommendations
+```
