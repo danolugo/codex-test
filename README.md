@@ -73,3 +73,15 @@ npm start
 ```
 
 This starts the dev server on http://localhost:3000 where you can see the placeholder UI.
+
+## Docker
+
+You can run the entire stack using Docker Compose. Build and start all services
+with:
+
+```bash
+docker-compose up --build
+```
+
+The React app will be available on <http://localhost:3000> and the Spring Boot
+API on <http://localhost:8080>.
