@@ -12,3 +12,9 @@ mvn spring-boot:run
 ```
 
 The backend exposes a simple health endpoint at `/`.
+You can register and log in using JSON requests:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"email":"test@example.com","password":"pass"}' http://localhost:8080/register
+curl -X POST -H "Content-Type: application/json" -d '{"email":"test@example.com","password":"pass"}' http://localhost:8080/login
+```
