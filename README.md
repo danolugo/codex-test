@@ -56,7 +56,7 @@ curl -H "Authorization: Bearer <token>" http://localhost:8080/connections/reques
 curl -X PUT -H "Authorization: Bearer <token>" \
      http://localhost:8080/connections/1/accept
 curl -X DELETE -H "Authorization: Bearer <token>" \
-      http://localhost:8080/connections/1  # decline or remove
+     http://localhost:8080/connections/1  # decline or remove
 ```
 
 ### Loading sample data
@@ -74,7 +74,6 @@ passing `APP_SEED=true` when starting the containers:
 ```bash
 APP_SEED=true docker-compose up --build
 ```
-
 
 ### Real-time chat
 

@@ -29,4 +29,3 @@ services:
       - "3000:80"
 volumes:
   db_data:
-
