@@ -55,6 +55,8 @@ To view incoming requests and accept one:
 curl -H "Authorization: Bearer <token>" http://localhost:8080/connections/requests
 curl -X PUT -H "Authorization: Bearer <token>" \
      http://localhost:8080/connections/1/accept
+curl -X DELETE -H "Authorization: Bearer <token>" \
+     http://localhost:8080/connections/1  # decline or remove
 ```
 
 ### Real-time chat

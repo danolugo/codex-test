@@ -34,6 +34,12 @@ public class ConnectionController {
         connectionService.acceptConnection(user, id);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteConnection(Authentication auth, @PathVariable Long id) {
+        User user = (User) auth.getPrincipal();
+        connectionService.removeConnection(user, id);
+    }
+
     @GetMapping
     public Map<String, Object> listConnections(Authentication auth) {
         User user = (User) auth.getPrincipal();
