@@ -15,7 +15,8 @@ services:
       SPRING_DATASOURCE_USERNAME: matchme
       SPRING_DATASOURCE_PASSWORD: matchme
       JWT_SECRET: changeme
-      APP_SEED: "true"
+      # Seed the database with demo data by setting APP_SEED=true
+      APP_SEED: "false"
     depends_on:
       - db
     ports:

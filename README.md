@@ -68,8 +68,12 @@ You can seed the database with 100 dummy users by starting the backend with
 mvn spring-boot:run -Dapp.seed=true
 ```
 
-When using Docker Compose, set the environment variable `APP_SEED=true` for the
-backend service.
+When using Docker Compose, seeding is disabled by default. You can enable it by
+passing `APP_SEED=true` when starting the containers:
+
+```bash
+APP_SEED=true docker-compose up --build
+```
 
 
 ### Real-time chat
