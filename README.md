@@ -71,6 +71,7 @@ mvn spring-boot:run -Dapp.seed=true
 When using Docker Compose, set the environment variable `APP_SEED=true` for the
 backend service.
 
+
 ### Real-time chat
 
 After connecting with another user you can exchange messages over WebSocket. Connect to `/ws` using SockJS/STOMP and send messages to `/app/chat/{recipientId}`. Incoming messages are delivered on `/user/queue/messages`.
