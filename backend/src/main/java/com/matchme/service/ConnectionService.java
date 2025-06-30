@@ -42,6 +42,15 @@ public class ConnectionService {
         connectionRepository.save(connection);
     }
 
+    @Transactional
+    public void removeConnection(User user, Long connectionId) {
+        Connection connection = connectionRepository.findById(connectionId).orElseThrow();
+        if (!connection.getRequester().equals(user) && !connection.getRecipient().equals(user)) {
+            throw new IllegalArgumentException("Not your connection");
+        }
+        connectionRepository.delete(connection);
+    }
+
     public List<Map<String, Object>> getIncomingRequests(User user) {
         return connectionRepository.findByRecipientAndStatus(user, Connection.Status.PENDING)
                 .stream()
