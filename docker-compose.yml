@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: matchme
+      POSTGRES_USER: matchme
+      POSTGRES_PASSWORD: matchme
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/matchme
+      SPRING_DATASOURCE_USERNAME: matchme
+      SPRING_DATASOURCE_PASSWORD: matchme
+      JWT_SECRET: changeme
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+volumes:
+  db_data:
+
